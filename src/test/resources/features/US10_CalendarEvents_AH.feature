@@ -2,9 +2,7 @@ Feature: Calendar event creation and type in the Description
 
   Agile story: As a user, I want to type into the “Description” when I create a calendar event.
 
-  Scenario: user is login in to the page
 
-    Then user should see title Login and input username with password
 
   Scenario: As user is in the homepage, Title "Fleet Management"
 
@@ -47,9 +45,9 @@ Feature: Calendar event creation and type in the Description
 
     When use is clicking the the Repeat box
 
-    Then use should see a blue check mark and more fuctions of the Repeat sections
+    Then use should see a blue check mark and more functions of the Repeat sections
 
-    And user is able to choose the begining and end of the repeating cicyle
+    And user is able to choose the beginning and end of the repeating cicyle
 
   Scenario: user creating the calendar event and clicks the Save And Close button
 
