@@ -3,6 +3,7 @@ package com.fleet.step_definitions;
 import com.fleet.utilities.BrowserUtils;
 import com.fleet.utilities.Driver;
 import io.cucumber.java.en.*;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -52,6 +53,14 @@ public class US09_errorMessage_RA {
         inputField.clear();
         inputField.sendKeys(value);
         BrowserUtils.sleep(10);
+        if (Integer.parseInt(value) > 99) {
+            WebElement errorMessage = driver.findElement(By.xpath("//span[text()='The value have not to be more than 99.']"));
+            Assert.assertTrue("Error message for value > 99 is not displayed!", errorMessage.isDisplayed());
+        } else if (Integer.parseInt(value) < 1) {
+            WebElement errorMessage = driver.findElement(By.xpath("//span[text()='The value have not to be less than 1.']"));
+            Assert.assertTrue("Error message for value < 1 is not displayed!", errorMessage.isDisplayed());
+            BrowserUtils.sleep(10);
+        }
     }
 
     @Then("the user closes the browser")
