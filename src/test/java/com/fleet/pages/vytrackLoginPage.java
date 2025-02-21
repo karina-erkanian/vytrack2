@@ -32,6 +32,13 @@ public class vytrackLoginPage {
         passwordInput.sendKeys(password);
         loginBtn.click();
     }
+
+    public void login() {
+        String username = System.getenv("STORE_MANAGER_USERNAME");
+        String password = System.getenv("STORE_MANAGER_PASSWORD");
+        login(username,password);
+
+    }
 }
 
 

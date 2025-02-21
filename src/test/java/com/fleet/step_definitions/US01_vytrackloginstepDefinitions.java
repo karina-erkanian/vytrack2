@@ -8,34 +8,36 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.WebDriver;
 
+import java.time.Duration;
 import java.util.List;
 
 public class US01_vytrackloginstepDefinitions {
 
      vytrackLoginPage vytrackLoginPage = new vytrackLoginPage();
 
+
     @Given("user is on the login page")
-    public void userIsOnTheLoginPage() {
-        Driver.getDriver().get(ConfigurationReader.getProperty("vyTrackUrl"));
+    public void the_user_is_on_the_vytrack_login_page() {
+        Driver.getDriver().get(ConfigurationReader.getProperty("url"));
 
     }
 
     @When("user enters the store manager information")
     public void user_enters_the_store_manager_information() {
-        vytrackLoginPage.login(ConfigurationReader.getProperty("store_manager_username"),
-                ConfigurationReader.getProperty("store_manager_password"));
+      //  vytrackLoginPage.login(ConfigurationReader.getProperty("store_manager_username"),
+              //  ConfigurationReader.getProperty("store_manager_password"));
         // Write code here that turns the phrase above into concrete actions
-    }
-    @When("user enters the username {string} and password {string}")
-    public void userEntersTheUsernameAndPassword(String username, String password) {
-        vytrackLoginPage.login(username, password);
+        vytrackLoginPage.usernameInput.sendKeys(ConfigurationReader.getProperty("store_manager_username"));
+        vytrackLoginPage.passwordInput.sendKeys(ConfigurationReader.getProperty("store_manager_password"));
+        vytrackLoginPage.loginBtn.click();
     }
 
 
     @Then("user should be able to login")
     public void userShouldBeAbleToLogin() {
-        BrowserUtils.waitForTitleContains("Dashboard");
+        BrowserUtils.sleep(10);
         Assert.assertEquals("Title verification is failed!","Dashboard",Driver.getDriver().getTitle());
 
     }
@@ -49,7 +51,8 @@ public class US01_vytrackloginstepDefinitions {
 
     @When("user enters the driver information")
     public void userEntersTheDriverInformation() {
-        vytrackLoginPage.login(ConfigurationReader.getProperty("driver_username"),ConfigurationReader.getProperty("driver_password"));
+        vytrackLoginPage.login(ConfigurationReader.getProperty("driver_username"),
+                ConfigurationReader.getProperty("driver_password"));
 
     }
 
@@ -58,9 +61,16 @@ public class US01_vytrackloginstepDefinitions {
         BrowserUtils.waitForTitleContains("Dashboard");
         List<String> actualModules = BrowserUtils.getElementsText(vytrackLoginPage.allModules);
         Assert.assertEquals(expectedModules,actualModules);
+        BrowserUtils.sleep(10);
 
 
     }
+    @When("user enters the store manager information from the environment")
+    public void userEntersTheStoreManagerInformationFromTheEnvironment() {
+        vytrackLoginPage.login();
+
+    }
+
 
 
 }
