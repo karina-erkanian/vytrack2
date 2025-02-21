@@ -1,6 +1,6 @@
 package com.fleet.step_definitions;
 
-import com.fleet.pages.vytrackLoginPage;
+import com.fleet.pages.US01_vytrackLoginPage;
 import com.fleet.utilities.BrowserUtils;
 import com.fleet.utilities.ConfigurationReader;
 import com.fleet.utilities.Driver;
@@ -8,14 +8,12 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.WebDriver;
 
-import java.time.Duration;
 import java.util.List;
 
 public class US01_vytrackloginstepDefinitions {
 
-     vytrackLoginPage vytrackLoginPage = new vytrackLoginPage();
+     US01_vytrackLoginPage vytrackLoginPage = new US01_vytrackLoginPage();
 
 
     @Given("user is on the login page")
@@ -26,12 +24,13 @@ public class US01_vytrackloginstepDefinitions {
 
     @When("user enters the store manager information")
     public void user_enters_the_store_manager_information() {
-      //  vytrackLoginPage.login(ConfigurationReader.getProperty("store_manager_username"),
+      //  US01_vytrackLoginPage.login(ConfigurationReader.getProperty("store_manager_username"),
               //  ConfigurationReader.getProperty("store_manager_password"));
         // Write code here that turns the phrase above into concrete actions
         vytrackLoginPage.usernameInput.sendKeys(ConfigurationReader.getProperty("store_manager_username"));
         vytrackLoginPage.passwordInput.sendKeys(ConfigurationReader.getProperty("store_manager_password"));
         vytrackLoginPage.loginBtn.click();
+        BrowserUtils.sleep(10);
     }
 
 

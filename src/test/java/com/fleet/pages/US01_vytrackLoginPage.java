@@ -1,16 +1,15 @@
 package com.fleet.pages;
 
 import com.fleet.utilities.Driver;
-import io.cucumber.java.en.When;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-public class vytrackLoginPage {
+public class US01_vytrackLoginPage {
 
-    public vytrackLoginPage() {
+    public US01_vytrackLoginPage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
@@ -31,13 +30,6 @@ public class vytrackLoginPage {
         usernameInput.sendKeys(username);
         passwordInput.sendKeys(password);
         loginBtn.click();
-    }
-
-    public void login() {
-        String username = System.getenv("STORE_MANAGER_USERNAME");
-        String password = System.getenv("STORE_MANAGER_PASSWORD");
-        login(username,password);
-
     }
 }
 
