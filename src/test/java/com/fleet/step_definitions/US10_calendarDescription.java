@@ -32,38 +32,37 @@ public class US10_calendarDescription {
     public void theUserLogsIn() {
 
 
-
     }
 
 
     @Then("User enter its credentials")
-    public void userEnterItsCredentials()  {
+    public void userEnterItsCredentials() {
 
         LoginStepDefs loginStepDefs = new LoginStepDefs();
 
         loginStepDefs.the_user_logged_in_as("driver");
 
 
-
     }
 
     @Then("user is on the homepage")
-    public void user_is_on_the_homepage()  {
+    public void user_is_on_the_homepage() {
         BrowserUtils.sleep(2);
     }
 
     @Then("user should see title is Fleet Management")
-    public void user_should_see_title_is_fleet_management()  {
+    public void user_should_see_title_is_fleet_management() {
         BrowserUtils.sleep(2);
 
         String expecteTitle = "Quick Launchpad";
         String actualTitle = Driver.getDriver().getTitle();
-        System.out.println("the actual title is "+actualTitle);
+        System.out.println("the actual title is " + actualTitle);
 
     }
 
-    @When("the user navigates to the Calendar Event page")
-    public void theUserNavigatesToTheCalendarEventPage() {
+    @When("the user is in the Calendar Event page")
+    public void theUserIsInTheCalendarEventPage() {
+
 
         US10_calendarDescription_page_AH hoverAndClick = new US10_calendarDescription_page_AH();
 
@@ -75,12 +74,6 @@ public class US10_calendarDescription {
         BrowserUtils.sleep(2);
     }
 
-    @Then("the user clicks on {string}")
-    public void theUserClicksOn(String arg0) {
-
-        BrowserUtils.sleep(2);
-
-    }
 
     @When("user is in All Calendar Events page and sees button Create Calendar Events with date box section")
     public void user_is_in_all_calendar_events_page_and_sees_button_create_calendar_events_with_date_box_section() {
@@ -106,6 +99,7 @@ public class US10_calendarDescription {
         TitleAndDescription.setTitleBox();
 
     }
+
     @Then("user able to write a title and description for the event")
     public void user_able_to_write_a_title_and_description_for_the_event() {
         BrowserUtils.sleep(2);

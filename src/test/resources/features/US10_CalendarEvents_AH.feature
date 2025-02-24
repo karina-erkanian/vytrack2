@@ -24,9 +24,7 @@ Feature: Calendar event creation and type in the Description
 
     Then user should see title is Fleet Management
 
-    When the user navigates to the Calendar Event page
-
-    Then the user clicks on "Create Calendar Event"
+    When the user is in the Calendar Event page
 
     When user is in All Calendar Events page and sees button Create Calendar Events with date box section
 
