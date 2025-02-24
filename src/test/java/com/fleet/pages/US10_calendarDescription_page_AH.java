@@ -65,20 +65,15 @@ public class US10_calendarDescription_page_AH {
             System.out.println("The element 'titleBox' is not found!");
         }
 
-
-
-
     }
 
     public void setDescriptionBox (){
 
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(5));
 
-        //WebElement iframeDescriptionBox = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//iframe[contains(@id, 'oro_calendar_event_form_description')]")));
+        Driver.getDriver().switchTo().frame(0);
 
         WebElement iframeDescriptionBox = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("tinymce")));
-
-        Driver.getDriver().switchTo().frame(iframeDescriptionBox);
 
         iframeDescriptionBox.clear();
 
@@ -93,7 +88,7 @@ public class US10_calendarDescription_page_AH {
 
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
 
-        WebElement SaveAndCloseBtn = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@value='save_and_close']")));
+        WebElement SaveAndCloseBtn = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[normalize-space()='Save and Close']")));
 
         SaveAndCloseBtn.click();
 

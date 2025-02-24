@@ -3,6 +3,7 @@ package com.fleet.step_definitions;
 
 
 import com.fleet.pages.BasePage;
+import com.fleet.pages.LoginPage;
 import com.fleet.pages.US10_calendarDescription_page_AH;
 import com.fleet.utilities.BrowserUtils;
 import com.fleet.utilities.Driver;
@@ -34,9 +35,6 @@ public class US10_calendarDescription {
 
     }
 
-    @When("in log in page")
-    public void inLogInPage() {
-    }
 
     @Then("User enter its credentials")
     public void userEnterItsCredentials()  {
@@ -44,6 +42,9 @@ public class US10_calendarDescription {
         LoginStepDefs loginStepDefs = new LoginStepDefs();
 
         loginStepDefs.the_user_logged_in_as("driver");
+
+
+
     }
 
     @Then("user is on the homepage")
@@ -71,13 +72,11 @@ public class US10_calendarDescription {
 
         hoverAndClick.navigateToModule(ActivitiesTab, CalendarEventTab);
 
-
         BrowserUtils.sleep(2);
     }
 
     @Then("the user clicks on {string}")
     public void theUserClicksOn(String arg0) {
-
 
         BrowserUtils.sleep(2);
 
@@ -94,10 +93,7 @@ public class US10_calendarDescription {
 
         US10_calendarDescription_page_AH CreateCalendarEvents = new US10_calendarDescription_page_AH();
 
-
         CreateCalendarEvents.CreateEventBtnClick();
-
-
 
     }
 
@@ -115,8 +111,6 @@ public class US10_calendarDescription {
         BrowserUtils.sleep(2);
 
         US10_calendarDescription_page_AH TitleAndDescription = new US10_calendarDescription_page_AH();
-
-
 
         TitleAndDescription.setDescriptionBox();
 
