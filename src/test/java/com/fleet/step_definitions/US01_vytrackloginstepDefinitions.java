@@ -66,7 +66,7 @@ public class US01_vytrackloginstepDefinitions {
     }
     @When("user enters the store manager information from the environment")
     public void userEntersTheStoreManagerInformationFromTheEnvironment() {
-        vytrackLoginPage.login();
+      //  vytrackLoginPage.login();  keep as committed since it is effecting the project You should add the parameters
 
     }
 
