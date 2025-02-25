@@ -13,6 +13,7 @@ import io.cucumber.java.ParameterType;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 
 
 import java.time.Duration;
@@ -25,15 +26,12 @@ public class US10_calendarDescription {
 
         Driver.getDriver().get("https://qa2.vytrack.com/user/login");
 
-
     }
 
     @Given("the user logs in")
     public void theUserLogsIn() {
 
-
     }
-
 
     @Then("User enter its credentials")
     public void userEnterItsCredentials() {
@@ -41,27 +39,31 @@ public class US10_calendarDescription {
         LoginStepDefs loginStepDefs = new LoginStepDefs();
 
         loginStepDefs.the_user_logged_in_as("driver");
-
-
     }
 
     @Then("user is on the homepage")
     public void user_is_on_the_homepage() {
         BrowserUtils.sleep(2);
+
+        String expectedTitle = "Dashboard";
+
+        String actualTitle = Driver.getDriver().getTitle();
+
+        Assert.assertEquals(expectedTitle, actualTitle);
     }
 
     @Then("user should see title is Fleet Management")
     public void user_should_see_title_is_fleet_management() {
         BrowserUtils.sleep(2);
 
-        String expecteTitle = "Quick Launchpad";
-        String actualTitle = Driver.getDriver().getTitle();
-        System.out.println("the actual title is " + actualTitle);
 
     }
 
     @When("the user is in the Calendar Event page")
     public void theUserIsInTheCalendarEventPage() {
+
+
+
 
 
         US10_calendarDescription_page_AH hoverAndClick = new US10_calendarDescription_page_AH();
@@ -77,6 +79,13 @@ public class US10_calendarDescription {
 
     @When("user is in All Calendar Events page and sees button Create Calendar Events with date box section")
     public void user_is_in_all_calendar_events_page_and_sees_button_create_calendar_events_with_date_box_section() {
+        BrowserUtils.sleep(2);
+
+        String expectedTitle = "Calendar Events - Activities";
+
+        String actualTitle = Driver.getDriver().getTitle();
+
+        Assert.assertEquals(expectedTitle, actualTitle);
 
     }
 
@@ -93,6 +102,12 @@ public class US10_calendarDescription {
     @When("user is in the Create Calendar Event page")
     public void user_is_in_the_create_calendar_event_page() {
         BrowserUtils.sleep(2);
+
+        String expectedTitle = "Create Calendar event - Calendar Events - Activities";
+
+        String actualTitle = Driver.getDriver().getTitle();
+
+        Assert.assertEquals(expectedTitle, actualTitle);
 
         US10_calendarDescription_page_AH TitleAndDescription = new US10_calendarDescription_page_AH();
 

@@ -15,7 +15,6 @@ Feature: Calendar event creation and type in the Description
 
     Given the user is on the Vytrack login page
 
-
     #When in log in page
 
     Then User enter its credentials
