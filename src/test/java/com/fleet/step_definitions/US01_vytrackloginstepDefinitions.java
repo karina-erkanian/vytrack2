@@ -13,7 +13,7 @@ import java.util.List;
 
 public class US01_vytrackloginstepDefinitions {
 
-    US01_vytrackLoginPage vytrackLoginPage = new US01_vytrackLoginPage();
+     US01_vytrackLoginPage vytrackLoginPage = new US01_vytrackLoginPage();
 
 
     @Given("user is on the login page")
@@ -24,8 +24,8 @@ public class US01_vytrackloginstepDefinitions {
 
     @When("user enters the store manager information")
     public void user_enters_the_store_manager_information() {
-        //  US01_vytrackLoginPage.login(ConfigurationReader.getProperty("store_manager_username"),
-        //  ConfigurationReader.getProperty("store_manager_password"));
+      //  US01_vytrackLoginPage.login(ConfigurationReader.getProperty("store_manager_username"),
+              //  ConfigurationReader.getProperty("store_manager_password"));
         // Write code here that turns the phrase above into concrete actions
         vytrackLoginPage.usernameInput.sendKeys(ConfigurationReader.getProperty("store_manager_username"));
         vytrackLoginPage.passwordInput.sendKeys(ConfigurationReader.getProperty("store_manager_password"));
@@ -73,8 +73,3 @@ public class US01_vytrackloginstepDefinitions {
 
 
 }
-
-
-
-
-
