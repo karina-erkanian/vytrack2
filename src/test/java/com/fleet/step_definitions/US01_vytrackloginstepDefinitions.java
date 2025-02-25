@@ -1,3 +1,7 @@
+
+
+
+
 package com.fleet.step_definitions;
 
 import com.fleet.pages.US01_vytrackLoginPage;
@@ -37,7 +41,7 @@ public class US01_vytrackloginstepDefinitions {
     @Then("user should be able to login")
     public void userShouldBeAbleToLogin() {
         BrowserUtils.sleep(10);
-        Assert.assertEquals("Title verification is failed!","Dashboard",Driver.getDriver().getTitle());
+        Assert.assertEquals("Title verification is failed!", "Dashboard", Driver.getDriver().getTitle());
 
     }
 
@@ -45,6 +49,7 @@ public class US01_vytrackloginstepDefinitions {
     public void userEntersTheSalesManagerInformation() {
         vytrackLoginPage.login(ConfigurationReader.getProperty("sales_manager_username"),
                 ConfigurationReader.getProperty("sales_manager_password"));
+
 
     }
 
@@ -59,22 +64,9 @@ public class US01_vytrackloginstepDefinitions {
     public void userShouldBeAbleToSeeFollowingModules(List<String> expectedModules) {
         BrowserUtils.waitForTitleContains("Dashboard");
         List<String> actualModules = BrowserUtils.getElementsText(vytrackLoginPage.allModules);
-        Assert.assertEquals(expectedModules,actualModules);
+        Assert.assertEquals(expectedModules, actualModules);
         BrowserUtils.sleep(10);
-
-
     }
-    @When("user enters the driver information from the environment")
-    public void userEntersTheDriverInformationFromTheEnvironment() {
-
-
-    }
-
-
 
 }
-
-
-
-
 
