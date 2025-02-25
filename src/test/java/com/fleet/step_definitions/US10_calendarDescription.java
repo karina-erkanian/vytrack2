@@ -1,122 +1,134 @@
 package com.fleet.step_definitions;
 
+
+
+import com.fleet.pages.BasePage;
+import com.fleet.pages.LoginPage;
+import com.fleet.pages.US10_calendarDescription_page_AH;
 import com.fleet.utilities.BrowserUtils;
 import com.fleet.utilities.Driver;
-import io.cucumber.java.en.And;
+import io.cucumber.java.Before;
+
+import io.cucumber.java.ParameterType;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
+
+import java.time.Duration;
+
 public class US10_calendarDescription {
 
-    @Given("user is on the Vytrack Login homepage")
-    public void userIsOnTheVytrackHomepage() {
 
-       // Driver.getDriver().get("https://qa2.vytrack.com/user/login");
+    @Before
+    public void setUp() {
+
+        Driver.getDriver().get("https://qa2.vytrack.com/user/login");
+
+
+    }
+
+    @Given("the user logs in")
+    public void theUserLogsIn() {
+
+
     }
 
 
-    @Then("user should see title Login and input username with password")
-    public void userShouldSeeTitleLoginAndInputUsernameWithPassword() {
+    @Then("User enter its credentials")
+    public void userEnterItsCredentials() {
 
-        String expectedTitle = "Title";
+        LoginStepDefs loginStepDefs = new LoginStepDefs();
 
-        BrowserUtils.verifyTitle(expectedTitle);
+        loginStepDefs.the_user_logged_in_as("driver");
+
+
     }
 
-    @When("user is on the homepage")
+    @Then("user is on the homepage")
     public void user_is_on_the_homepage() {
-        // Write code here that turns the phrase above into concrete actions
-
+        BrowserUtils.sleep(2);
     }
+
     @Then("user should see title is Fleet Management")
     public void user_should_see_title_is_fleet_management() {
+        BrowserUtils.sleep(2);
 
-        BrowserUtils.verifyTitle("Fleet Management");
-
-    }
-
-    @When("user is able to see and hower over Activities tap")
-    public void user_is_able_to_see_and_hower_over_activities_tap() {
-
-    }
-    @Then("a pop out Calendar Events appears")
-    public void a_pop_out_calendar_events_appears() {
-
-
-    }
-    @Then("user able to click on the Calendar Events bar")
-    public void user_able_to_click_on_the_calendar_events_bar() {
+        String expecteTitle = "Quick Launchpad";
+        String actualTitle = Driver.getDriver().getTitle();
+        System.out.println("the actual title is " + actualTitle);
 
     }
 
-    @When("user is in Calendar Events page and sees button Create Calendar Events with date box section")
-    public void user_is_in_calendar_events_page_and_sees_button_create_calendar_events_with_date_box_section() {
-
-        BrowserUtils.verifyTitle("Create Calendar Events");
-
-    }
-    @Then("user should see Calendar Events subtitle and blue box with writing Create Calendar Events")
-    public void user_should_see_calendar_events_subtitle_and_blue_box_with_writing_create_calendar_events() {
-
-    }
+    @When("the user is in the Calendar Event page")
+    public void theUserIsInTheCalendarEventPage() {
 
 
-    @When("user click on the Create Calendar Events")
-    public void userClickOnTheCreateCalendarEvents() {
+        US10_calendarDescription_page_AH hoverAndClick = new US10_calendarDescription_page_AH();
 
+        String ActivitiesTab = "Activities";
+        String CalendarEventTab = "Calendar Events";
+
+        hoverAndClick.navigateToModule(ActivitiesTab, CalendarEventTab);
+
+        BrowserUtils.sleep(2);
     }
 
-    @Then("a new page come out with new subtitle {string}")
-    public void aNewPageComeOutWithNewSubtitle(String arg0) {
 
-        BrowserUtils.verifyTitle("Create Calendar Events");
+    @When("user is in All Calendar Events page and sees button Create Calendar Events with date box section")
+    public void user_is_in_all_calendar_events_page_and_sees_button_create_calendar_events_with_date_box_section() {
 
     }
 
-    @And("see all the feature in the page")
-    public void seeAllTheFeatureInThePage() {
+    @Then("user should be able to click Create Calendar Events")
+    public void user_should_be_able_to_click_create_calendar_events() {
+        BrowserUtils.sleep(2);
+
+        US10_calendarDescription_page_AH CreateCalendarEvents = new US10_calendarDescription_page_AH();
+
+        CreateCalendarEvents.CreateEventBtnClick();
 
     }
 
     @When("user is in the Create Calendar Event page")
-    public void userIsInTheCreateCalendarEventPage() {
+    public void user_is_in_the_create_calendar_event_page() {
+        BrowserUtils.sleep(2);
+
+        US10_calendarDescription_page_AH TitleAndDescription = new US10_calendarDescription_page_AH();
+
+        TitleAndDescription.setTitleBox();
 
     }
 
     @Then("user able to write a title and description for the event")
-    public void userAbleToWriteATitleAndDescriptionForTheEvent() {
+    public void user_able_to_write_a_title_and_description_for_the_event() {
+        BrowserUtils.sleep(2);
 
-    }
+        US10_calendarDescription_page_AH TitleAndDescription = new US10_calendarDescription_page_AH();
 
-    @And("user is able to choose a time specific period or click on the All-Day Event box")
-    public void userIsAbleToChooseATimeSpecificPeriodOrClickOnTheAllDayEventBox() {
+        TitleAndDescription.setDescriptionBox();
 
-    }
+        BrowserUtils.sleep(2);
 
-    @When("use is clicking the the Repeat box")
-    public void useIsClickingTheTheRepeatBox() {
-
-    }
-
-    @Then("use should see a blue check mark and more fuctions of the Repeat sections")
-    public void useShouldSeeABlueCheckMarkAndMoreFuctionsOfTheRepeatSections() {
-    }
-
-
-    @And("user is able to choose the begining and end of the repeating cicyle")
-    public void userIsAbleToChooseTheBeginingAndEndOfTheRepeatingCicyle() {
     }
 
     @When("user is done with the description and title")
-    public void userIsDoneWithTheDescriptionAndTitle() {
+    public void user_is_done_with_the_description_and_title() {
+        BrowserUtils.sleep(2);
 
     }
 
     @Then("able to click on Save And Close button")
-    public void ableToClickOnSaveAndCloseButton() {
-    }
+    public void able_to_click_on_save_and_close_button() {
 
+        BrowserUtils.sleep(2);
+
+        US10_calendarDescription_page_AH SaveAndClose = new US10_calendarDescription_page_AH();
+
+        SaveAndClose.SaveAndCloseButtonClick();
+
+
+    }
 
 
 }
