@@ -7,17 +7,18 @@ Feature:  The user should be able to access to Vehicle contracts page
 #AC #1: Verify that Store managers and Sales managers can access
 # the Vehicle Contracts page.
 
-  Scenario: Store managers can access the Vehicle Contracts page.
-    When  As a store manager enters valid credentials
+  Scenario Outline: Store managers can access the Vehicle Contracts page.
+    Given the user logged in as "<user>"
     Then  User is able to access the vehicle contracts page
 
-  @wipMY
-  Scenario: Sales managers can access the Vehicle Contracts page.
-    When  As a sales manager enters valid credentials
-    Then  User is able to access the vehicle contracts page
+    @wipMY
+    Examples:
+  | user          |
+  | sales manager |
+  | store manager |
 
 
   Scenario: Driver cannot access the Vehicle Contracts page.
-    When  As a driver enters valid credentials
+    Given the user logged in as "driver"
     Then  Driver  is  not able to access the vehicle contracts page
 

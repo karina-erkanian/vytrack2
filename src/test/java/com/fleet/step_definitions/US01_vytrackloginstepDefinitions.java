@@ -1,3 +1,7 @@
+
+
+
+
 package com.fleet.step_definitions;
 
 import com.fleet.pages.US01_vytrackLoginPage;
@@ -13,7 +17,7 @@ import java.util.List;
 
 public class US01_vytrackloginstepDefinitions {
 
-     US01_vytrackLoginPage vytrackLoginPage = new US01_vytrackLoginPage();
+    US01_vytrackLoginPage vytrackLoginPage = new US01_vytrackLoginPage();
 
 
     @Given("user is on the login page")
@@ -24,8 +28,8 @@ public class US01_vytrackloginstepDefinitions {
 
     @When("user enters the store manager information")
     public void user_enters_the_store_manager_information() {
-      //  US01_vytrackLoginPage.login(ConfigurationReader.getProperty("store_manager_username"),
-              //  ConfigurationReader.getProperty("store_manager_password"));
+        //  US01_vytrackLoginPage.login(ConfigurationReader.getProperty("store_manager_username"),
+        //  ConfigurationReader.getProperty("store_manager_password"));
         // Write code here that turns the phrase above into concrete actions
         vytrackLoginPage.usernameInput.sendKeys(ConfigurationReader.getProperty("store_manager_username"));
         vytrackLoginPage.passwordInput.sendKeys(ConfigurationReader.getProperty("store_manager_password"));
@@ -37,7 +41,7 @@ public class US01_vytrackloginstepDefinitions {
     @Then("user should be able to login")
     public void userShouldBeAbleToLogin() {
         BrowserUtils.sleep(10);
-        Assert.assertEquals("Title verification is failed!","Dashboard",Driver.getDriver().getTitle());
+        Assert.assertEquals("Title verification is failed!", "Dashboard", Driver.getDriver().getTitle());
 
     }
 
@@ -45,6 +49,7 @@ public class US01_vytrackloginstepDefinitions {
     public void userEntersTheSalesManagerInformation() {
         vytrackLoginPage.login(ConfigurationReader.getProperty("sales_manager_username"),
                 ConfigurationReader.getProperty("sales_manager_password"));
+
 
     }
 
@@ -59,17 +64,9 @@ public class US01_vytrackloginstepDefinitions {
     public void userShouldBeAbleToSeeFollowingModules(List<String> expectedModules) {
         BrowserUtils.waitForTitleContains("Dashboard");
         List<String> actualModules = BrowserUtils.getElementsText(vytrackLoginPage.allModules);
-        Assert.assertEquals(expectedModules,actualModules);
+        Assert.assertEquals(expectedModules, actualModules);
         BrowserUtils.sleep(10);
-
-
     }
-    @When("user enters the store manager information from the environment")
-    public void userEntersTheStoreManagerInformationFromTheEnvironment() {
-        vytrackLoginPage.login();
-
-    }
-
-
 
 }
+
