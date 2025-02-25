@@ -54,37 +54,23 @@ public class HoverOptionsUnderFleetPage extends BasePage {
 
         //Initialize webdriver wait
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
+        for (WebElement menuOption : menuOptions) {//
+            //wait for visibility
+            WebElement fleetMenu= wait.until(ExpectedConditions.visibilityOf(menuOption));
 
-        //wait for visibility
-        WebElement fleetMenu = wait.until(ExpectedConditions.visibilityOf(menuOptions.get(1)));
+            if(menuOption.getText().equals("Fleet")){
+                //hover over fleet menu
+                actions.moveToElement(menuOption).perform(); //Hover
+                BrowserUtils.sleep(1);
+                //locate vehicle contracts
+                WebElement vehicleContractsOption = Driver.getDriver().findElement(By.xpath("//a[.='Vehicle Contracts']"));
+                vehicleContractsOption.click();
 
-        //hover over fleet menu
-        actions.moveToElement(menuOptions.get(1)).perform(); //Hover
-
-        BrowserUtils.sleep(1);
-        //locate vehicle contracts
-        WebElement vehicleContractsOption = Driver.getDriver().findElement(By.xpath("//a[.='Vehicle Contracts']"));
-        vehicleContractsOption.click();
-    }
+            }
+        }
 
 
-    public void VehicleContractsHoverAndClick2(){
-        //Instance of actions to use interactions
-        Actions actions = new Actions(Driver.getDriver()); //Create instance of Actions to use interactions
 
-        //Initialize webdriver wait
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
-
-        //wait for visibility
-        WebElement fleetMenu = wait.until(ExpectedConditions.visibilityOf(menuOptions.get(0)));
-
-        //hover over fleet menu
-        actions.moveToElement(menuOptions.get(0)).perform(); //Hover
-
-        BrowserUtils.sleep(1);
-        //locate vehicle contracts
-        WebElement vehicleContractsOption = Driver.getDriver().findElement(By.xpath("//a[.='Vehicle Contracts']"));
-        vehicleContractsOption.click();
     }
 
 }
