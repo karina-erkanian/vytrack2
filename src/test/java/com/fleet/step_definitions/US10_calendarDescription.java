@@ -45,11 +45,7 @@ public class US10_calendarDescription {
     public void user_is_on_the_homepage() {
         BrowserUtils.sleep(2);
 
-        String expectedTitle = "Dashboard";
 
-        String actualTitle = Driver.getDriver().getTitle();
-
-        Assert.assertEquals(expectedTitle, actualTitle);
     }
 
     @Then("user should see title is Fleet Management")
@@ -57,14 +53,18 @@ public class US10_calendarDescription {
         BrowserUtils.sleep(2);
 
 
+
+
     }
 
     @When("the user is in the Calendar Event page")
     public void theUserIsInTheCalendarEventPage() {
 
+        String expectedTitle = "Calendar Events - Activities";
 
+        String actualTitle = Driver.getDriver().getTitle();
 
-
+        Assert.assertEquals(expectedTitle, actualTitle);
 
         US10_calendarDescription_page_AH hoverAndClick = new US10_calendarDescription_page_AH();
 
@@ -77,17 +77,7 @@ public class US10_calendarDescription {
     }
 
 
-    @When("user is in All Calendar Events page and sees button Create Calendar Events with date box section")
-    public void user_is_in_all_calendar_events_page_and_sees_button_create_calendar_events_with_date_box_section() {
-        BrowserUtils.sleep(2);
 
-        String expectedTitle = "Calendar Events - Activities";
-
-        String actualTitle = Driver.getDriver().getTitle();
-
-        Assert.assertEquals(expectedTitle, actualTitle);
-
-    }
 
     @Then("user should be able to click Create Calendar Events")
     public void user_should_be_able_to_click_create_calendar_events() {

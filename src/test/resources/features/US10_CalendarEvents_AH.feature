@@ -25,7 +25,6 @@ Feature: Calendar event creation and type in the Description
 
     When the user is in the Calendar Event page
 
-    When user is in All Calendar Events page and sees button Create Calendar Events with date box section
 
     Then user should be able to click Create Calendar Events
 
