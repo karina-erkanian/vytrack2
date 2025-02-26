@@ -1,8 +1,6 @@
 package com.fleet.step_definitions;
 
-import com.fleet.pages.LoginPage;
 import com.fleet.utilities.BrowserUtils;
-import com.fleet.utilities.ConfigurationReader;
 import com.fleet.utilities.Driver;
 import io.cucumber.java.en.*;
 import org.junit.Assert;
@@ -15,27 +13,11 @@ import java.time.Duration;
 public class US09_errorMessage_RA {
     WebDriver driver = Driver.getDriver();
 
-    @Given("the user is on the Vytrack login page")
-    public void the_user_is_on_the_vytrack_login_page() {
+    @When("the user navigates to the Calendar Event page")
+    public void the_user_navigates_to_the_calendar_event_page() {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.get("https://qa2.vytrack.com/calendar/event");
-    }
-
-    @When("the user logs in with username and password")
-    public void the_user_logs_in() {
-        String user = ConfigurationReader.getProperty("driver_username");
-        String pass = ConfigurationReader.getProperty("driver_password");
-
-        LoginPage LoginPage = new LoginPage();
-
-        LoginPage.login(user, pass);
-
-        BrowserUtils.sleep(10);
-    }
-
-    @Then("the user navigates to the Calendar Event page")
-    public void the_user_navigates_to_the_calendar_event_page() {
         BrowserUtils.sleep(5);
     }
 
