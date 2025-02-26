@@ -73,4 +73,38 @@ public class HoverOptionsUnderFleetPage extends BasePage {
 
     }
 
+    public void vehiclesModelHoverAndClick(){
+
+        Actions actions = new Actions(Driver.getDriver());
+
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
+
+        WebElement fleetMenu = wait.until(ExpectedConditions.visibilityOf(menuOptions.get(0)));
+
+        actions.moveToElement(menuOptions.get(1)).perform(); //Hover
+
+        BrowserUtils.sleep(1);
+        US05_vehicleModelPage_KA us05VehicleModelPageKa = new US05_vehicleModelPage_KA();
+        us05VehicleModelPageKa.vehiclesModels.click();
+    }
+
+    public void vehiclesModelhoverAndClickForDrivers(){
+
+        Actions actions = new Actions(Driver.getDriver()); //Create instance of Actions to use interactions
+
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
+
+        //wait for visibility
+        WebElement fleetMenu = wait.until(ExpectedConditions.visibilityOf(menuOptions.get(0)));
+
+        //hover over fleet menu
+        actions.moveToElement(menuOptions.get(0)).perform(); //Hover
+
+        BrowserUtils.sleep(1);
+
+        WebElement vehicleModels = Driver.getDriver().findElement(By.xpath("//a[.='Vehicles Model']"));
+        vehicleModels.click();
+    }
+
+
 }
