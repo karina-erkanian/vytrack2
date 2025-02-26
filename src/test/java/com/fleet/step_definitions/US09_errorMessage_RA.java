@@ -1,6 +1,8 @@
 package com.fleet.step_definitions;
 
+import com.fleet.pages.LoginPage;
 import com.fleet.utilities.BrowserUtils;
+import com.fleet.utilities.ConfigurationReader;
 import com.fleet.utilities.Driver;
 import io.cucumber.java.en.*;
 import org.junit.Assert;
@@ -20,11 +22,15 @@ public class US09_errorMessage_RA {
         driver.get("https://qa2.vytrack.com/calendar/event");
     }
 
-    @When("the user logs in with username {string} and password {string}")
-    public void the_user_logs_in(String username, String password) {
-        driver.findElement(By.id("prependedInput")).sendKeys(username);
-        driver.findElement(By.id("prependedInput2")).sendKeys(password);
-        driver.findElement(By.id("_submit")).click();
+    @When("the user logs in with username and password")
+    public void the_user_logs_in() {
+        String user = ConfigurationReader.getProperty("driver_username");
+        String pass = ConfigurationReader.getProperty("driver_password");
+
+        LoginPage LoginPage = new LoginPage();
+
+        LoginPage.login(user, pass);
+
         BrowserUtils.sleep(10);
     }
 
