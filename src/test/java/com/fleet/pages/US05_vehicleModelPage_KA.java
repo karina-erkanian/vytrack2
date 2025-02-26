@@ -17,9 +17,6 @@ public class US05_vehicleModelPage_KA {
     @FindBy(xpath = "//span[.='Vehicles Model']")
     public WebElement vehiclesModels;
 
-    @FindBy(tagName = "table")
-    public WebElement vehiclesModelsTable;
-
     @FindBy(xpath = "//table//thead//span[contains(text(),'Model Name')]")
     public WebElement modelNameHeader;
 

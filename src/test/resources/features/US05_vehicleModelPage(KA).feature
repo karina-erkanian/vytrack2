@@ -22,6 +22,6 @@ Feature: Access and view permissions on the vehicles model page
   Scenario: Driver cannot access the vehicles model page and sees a permission error
     Given the user logged in as "driver"
     When the user tries to navigate to the vehicles model page
-    Then the user should see an error message "You do not have permission to perform this action"
+    Then the user should see an error message "You do not have permission to perform this action."
 
 

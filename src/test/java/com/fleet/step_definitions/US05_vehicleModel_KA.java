@@ -28,7 +28,7 @@ public class US05_vehicleModel_KA {
 
     @Then("the user should see {int} columns on the vehicles model page")
 
-    public void the_user_should_see_columns_on_the_vehicles_model_page(Integer int1) {
+    public void the_user_should_see_columns_on_the_vehicles_model_page(Integer expectedAmountOfColumns) {
 
         List<WebElement> columnHeaders = new ArrayList<>();
 
@@ -53,7 +53,7 @@ public class US05_vehicleModel_KA {
             actualColumnHeadersText.add(each.getText());
 
         }
-        Assert.assertEquals(10, columnHeaders.size());
+        Assert.assertEquals(expectedAmountOfColumns.intValue(), columnHeaders.size());
         Assert.assertEquals(expectedColumnHeadersText, actualColumnHeadersText);
     }
 
@@ -64,12 +64,10 @@ public class US05_vehicleModel_KA {
     }
 
     @Then("the user should see an error message {string}")
-    public void the_user_should_see_an_error_message(String string) {
+    public void the_user_should_see_an_error_message(String expectedErrorMessage) {
 
         String actualErrorMessage = us05VehicleModelPageKa.errorMessageForDrivers.getText();
-        String expectedErrorMessage = "You do not have permission to perform this action.";
 
-        System.out.println(actualErrorMessage);
 
         BrowserUtils.waitFor(2);
         Assert.assertTrue(us05VehicleModelPageKa.errorMessageForDrivers.isDisplayed());
