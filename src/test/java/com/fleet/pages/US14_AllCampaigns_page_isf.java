@@ -14,7 +14,7 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
-public class US14_AllCampaigns_page_isf {
+public class US14_AllCampaigns_page_isf extends BasePage{
 
     public US14_AllCampaigns_page_isf(){
 

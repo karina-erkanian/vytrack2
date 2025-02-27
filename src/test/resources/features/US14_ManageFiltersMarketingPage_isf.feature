@@ -22,7 +22,7 @@ Feature: Manage Filters on the Marketing Page
       | Tags       |
 
     And User unchecks the following filters:
-      | Name       |
+      | Name     |
       | End Date |
 
     Then the unchecked filters should not be selected:
