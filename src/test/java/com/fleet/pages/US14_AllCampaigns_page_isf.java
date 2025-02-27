@@ -40,6 +40,7 @@ public class US14_AllCampaigns_page_isf extends BasePage{
     @FindBy(xpath = "//div[@class='pull-right grid-toolbar-tools']/div[1]/div/a[1]")
     public WebElement filterSymbol;
 
+
     // Click to Manage Filters
     @FindBy(xpath = "//div[@class='filter-box oro-clearfix-width']//button")
     public WebElement filtersButton;
@@ -122,6 +123,7 @@ public class US14_AllCampaigns_page_isf extends BasePage{
         }
     }
 
+    // uncheck given Filters
     public void unchecksFilters(List<String> filtersToUncheck){
 
         for (String filterEach : filtersToUncheck){
@@ -136,6 +138,7 @@ public class US14_AllCampaigns_page_isf extends BasePage{
 
     }
 
+    // verify unchecked given Filters
     public void verifyUnchecksFilters(List<String> filtersToUncheck){
 
         for (String filterEach : filtersToUncheck){

@@ -64,7 +64,6 @@ public class US14_ManagingFilters_stepDef_isf  {
     }
 
 
-
     // Verifying Campaigns Page
     @And("User is on the {string} page")
     public void userIsOnThePage(String campaignsPage) {
@@ -101,7 +100,7 @@ public class US14_ManagingFilters_stepDef_isf  {
 
     }
 
-
+    // verify unchecked Filters
     @Then("the unchecked filters should not be selected:")
     public void theUncheckedFiltersShouldNotBeSelected(List<String> filtersToUncheck) {
         BrowserUtils.sleep(3);
