@@ -11,13 +11,11 @@ import org.junit.Assert;
 
 import java.util.List;
 
-public class US14_ManagingFilters_stepDef_isf {
+public class US14_ManagingFilters_stepDef_isf  {
 
     // For Log in -> Used LoginPage Object
     LoginPage loginPage = new LoginPage();
 
-    // Use methods from BasePage -> to confirm Main page
-    BasePage basePage = new BasePage();
 
     // hover over -> Marketing Menu option
     HoverOptionsUnderFleetPage hoverOptions = new HoverOptionsUnderFleetPage();
@@ -41,9 +39,11 @@ public class US14_ManagingFilters_stepDef_isf {
     // confirm Main page
     @Given("User is on the Fleet Management main page {string}")
     public void user_is_on_the_fleet_management_main_page(String expectedText) {
-        String actualTitle = basePage.getPageSubTitle();
 
-        Assert.assertEquals(expectedText, actualTitle);
+            String actualTitle = campaignsPage.getPageSubTitle();
+
+            Assert.assertEquals(expectedText, actualTitle);
+
     }
 
 
@@ -62,7 +62,6 @@ public class US14_ManagingFilters_stepDef_isf {
 
         campaignsPage.getCampaignsLocator(userRole).click();
     }
-
 
 
     // Verifying Campaigns Page
@@ -101,7 +100,7 @@ public class US14_ManagingFilters_stepDef_isf {
 
     }
 
-
+    // verify unchecked Filters
     @Then("the unchecked filters should not be selected:")
     public void theUncheckedFiltersShouldNotBeSelected(List<String> filtersToUncheck) {
         BrowserUtils.sleep(3);

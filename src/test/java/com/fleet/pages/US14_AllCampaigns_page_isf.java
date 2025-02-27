@@ -14,7 +14,7 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
-public class US14_AllCampaigns_page_isf {
+public class US14_AllCampaigns_page_isf extends BasePage{
 
     public US14_AllCampaigns_page_isf(){
 
@@ -39,6 +39,7 @@ public class US14_AllCampaigns_page_isf {
     // Locate Filter Symbol for visibility
     @FindBy(xpath = "//div[@class='pull-right grid-toolbar-tools']/div[1]/div/a[1]")
     public WebElement filterSymbol;
+
 
     // Click to Manage Filters
     @FindBy(xpath = "//div[@class='filter-box oro-clearfix-width']//button")
@@ -72,7 +73,6 @@ public class US14_AllCampaigns_page_isf {
         } else if (userRole.equalsIgnoreCase("sales manager")) {
             userRole = "salesmanager263";
         }
-
 
 
         // Create a modifiable list from expected Options (Store Manager)
@@ -122,6 +122,7 @@ public class US14_AllCampaigns_page_isf {
         }
     }
 
+    // uncheck given Filters
     public void unchecksFilters(List<String> filtersToUncheck){
 
         for (String filterEach : filtersToUncheck){
@@ -136,6 +137,7 @@ public class US14_AllCampaigns_page_isf {
 
     }
 
+    // verify unchecked given Filters
     public void verifyUnchecksFilters(List<String> filtersToUncheck){
 
         for (String filterEach : filtersToUncheck){
