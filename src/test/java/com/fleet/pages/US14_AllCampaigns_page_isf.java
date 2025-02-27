@@ -75,7 +75,6 @@ public class US14_AllCampaigns_page_isf extends BasePage{
         }
 
 
-
         // Create a modifiable list from expected Options (Store Manager)
         List<String> modifiableExpectedOptions = new ArrayList<>(expectedOptions);
 
