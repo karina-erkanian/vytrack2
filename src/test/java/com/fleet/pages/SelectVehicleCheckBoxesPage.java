@@ -11,44 +11,41 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.sql.SQLOutput;
 import java.time.Duration;
 import java.util.List;
+import java.util.SortedMap;
 
 public class SelectVehicleCheckBoxesPage {
 
-    public static void selectCheckBox(int index) {
+    public static void checkUnselectedCheckBoxes(){
+        WebElement checkBoxAll = Driver.getDriver().findElement(By.xpath("//table//th//input[@type='checkbox']"));
+        System.out.println("checkBoxAll.isSelected() = " + checkBoxAll.isSelected());
 
-    //To select all
-    /*
-    @FindBy(xpath = "//tbody//input[@type='checkbox']")
-    List<WebElement> checkBoxes;
-
-    public SelectVehicleCheckBoxesPage() {
-        PageFactory.initElements(Driver.getDriver(), this);
     }
 
-    public void selectCheckBox(int index) {
-        for(WebElement checkBox : checkBoxes) {
-
-            checkBox.click();
-        }
-
-     */
-
+    public static void selectCheckBox(int index) {
 
         WebElement checkBox = Driver.getDriver().findElement(By.xpath("(//tbody//input[@type='checkbox'])[" + index + "]"));
         checkBox.click();
         System.out.println("checkbox" + index + "is selected " + checkBox.isSelected());
     }
 
-
-
-
-
-
-
-
+    public static void selectAllCheckBoxes() {
+        WebElement allCheckBox = Driver.getDriver().findElement(By.xpath("//table//th//input[@type='checkbox']"));
+        allCheckBox.click();
+        System.out.println("allCheckBox is selected " + allCheckBox.isSelected());
+    }
 }
+
+
+
+
+
+
+
+
+
 
 
 
