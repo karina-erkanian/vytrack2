@@ -40,6 +40,23 @@ public class US10_calendarDescription_page_AH {
     @FindBy(xpath = "//a[@title='Create Calendar event']")
     public WebElement createCalendarEventBtn;
 
+    @FindBy(tagName = "p")
+    public WebElement VerifyDescription;
+
+
+
+    public void VerifyDescriptionBox(){
+
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(5));
+
+        WebElement VerifyDescrp = wait.until(ExpectedConditions.visibilityOfElementLocated(By.tagName("p")));
+
+        String verifyDescription = VerifyDescrp.getText();
+
+        System.out.println("the users description field is: " + verifyDescription);
+
+    }
+
 
 
 
@@ -55,6 +72,8 @@ public class US10_calendarDescription_page_AH {
 
     public void setTitleBox (){
 
+        BrowserUtils.sleep(5);
+
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(5));
 
         WebElement titleBox = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[data-ftid='oro_calendar_event_form_title']")));
@@ -69,6 +88,8 @@ public class US10_calendarDescription_page_AH {
 
     public void setDescriptionBox (){
 
+        BrowserUtils.sleep(5);
+
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(5));
 
         Driver.getDriver().switchTo().frame(0);
@@ -78,6 +99,8 @@ public class US10_calendarDescription_page_AH {
         iframeDescriptionBox.clear();
 
         iframeDescriptionBox.sendKeys("New Cydeo Students");
+
+
 
         Driver.getDriver().switchTo().defaultContent();
 
@@ -91,6 +114,10 @@ public class US10_calendarDescription_page_AH {
         WebElement SaveAndCloseBtn = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[normalize-space()='Save and Close']")));
 
         SaveAndCloseBtn.click();
+
+        BrowserUtils.sleep(10);
+
+
 
     }
 

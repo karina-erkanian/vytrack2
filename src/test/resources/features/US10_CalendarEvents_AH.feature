@@ -7,24 +7,17 @@ Feature: Calendar event creation and type in the Description
 
 #Scenario: Pre conditions
 
-  #Given the user is on the Vytrack login page
+
 
   #When the user logs in with username "User1" and password "UserUser123"
 
   Scenario: Pre conditions to Calendar Description
 
-    Given the user is on the Vytrack login page
+    #Given the user logs in as "<user>"
 
-    #When in log in page
-
-    Then User enter its credentials
-
-    Then user is on the homepage
-
-    Then user should see title is Fleet Management
+    Given the user logs in
 
     When the user is in the Calendar Event page
-
 
     Then user should be able to click Create Calendar Events
 
@@ -35,3 +28,5 @@ Feature: Calendar event creation and type in the Description
     When user is done with the description and title
 
     Then able to click on Save And Close button
+
+    And Verify the users description field
