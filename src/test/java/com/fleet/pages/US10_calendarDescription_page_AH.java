@@ -18,9 +18,8 @@ public class US10_calendarDescription_page_AH {
 
    //1.
 
-    public void LoginUser (){
+    public void US10CalendarDescription () {
         PageFactory.initElements(Driver.getDriver(), this);
-
 
     }
 
@@ -51,9 +50,21 @@ public class US10_calendarDescription_page_AH {
 
         WebElement VerifyDescrp = wait.until(ExpectedConditions.visibilityOfElementLocated(By.tagName("p")));
 
-        String verifyDescription = VerifyDescrp.getText();
+        VerifyDescrp.getText();
 
-        System.out.println("the users description field is: " + verifyDescription);
+        System.out.println(VerifyDescrp.getText()+" is the description");
+
+        String expectedDescription = "New Cydeo Students";
+        String actualDescription = VerifyDescrp.getText();
+
+        System.out.println(actualDescription + " is the expected description");
+        System.out.println(expectedDescription + " is the actual description");
+
+
+
+
+
+
 
     }
 

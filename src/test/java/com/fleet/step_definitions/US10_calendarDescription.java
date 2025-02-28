@@ -23,11 +23,11 @@ public class US10_calendarDescription {
 
     US10_calendarDescription_page_AH US10_calendarDescription = new US10_calendarDescription_page_AH();
 
-    /*@Given("the user logs in as {string}")
+    @Given("the user logs in as {string}")
     public void theUserLogsInAs(String arg0) {
 
 
-    }*/
+    }
 
 
 
@@ -108,7 +108,7 @@ public class US10_calendarDescription {
         Assert.assertEquals(expectedTitle, actualTitle);
 
         if (actualTitle.equals(expectedTitle)) {
-            System.out.println("Title page is matched" + actualTitle);
+            System.out.println("Title page is matched " + actualTitle);
         } else {
             System.out.println("Title page is not matched");
         }
@@ -146,7 +146,12 @@ public class US10_calendarDescription {
     @And("Verify the users description field")
     public void verifyTheUsersDescriptionField() {
 
-       // US10_calendarDescription.VerifyDescription.getText();
+        US10_calendarDescription.VerifyDescriptionBox();
+
+
+
+
+
 
 
 
