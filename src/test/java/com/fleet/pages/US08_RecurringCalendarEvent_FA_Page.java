@@ -33,7 +33,7 @@ public class US08_RecurringCalendarEvent_FA_Page extends BasePage {
 
 
 
-    @FindBy(xpath = "//select[@id='recurrence-repeats-view1365']")
+    @FindBy(xpath = "//select[@data-name='recurrence-repeats']")
     public WebElement DropDownRepeats;
 
 

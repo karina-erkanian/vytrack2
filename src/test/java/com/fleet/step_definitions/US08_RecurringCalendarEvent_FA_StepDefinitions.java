@@ -20,6 +20,8 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.Arrays;
+import java.util.List;
 
 public class US08_RecurringCalendarEvent_FA_StepDefinitions {
 
@@ -80,50 +82,39 @@ public class US08_RecurringCalendarEvent_FA_StepDefinitions {
 
     //=============== @US08AC1-3 =============================================================================================================
 
-    /*
+    @Then("user should see the default number in the Repeat Every field is one for each repetition other than {string}")
+    public void userShouldSeeTheDefaultNumberInTheRepeatEveryFieldIsNumberOneForEach(String excludedRepetitionCycle) {
 
-    @When("user select any repetition cycle in Repeats input other than {string}")
-    public void userSelectAnyRepetitionCycleInRepeatsInputOtherThan(String expectedRepetitionCycle) {
 
-        // Ensure the input is not null or empty
-        if (expectedRepetitionCycle == null || expectedRepetitionCycle.isEmpty()) {
-            System.out.println("Error: Expected repetition cycle is null or empty.");
-            return;
-        }
+        // Define all possible repetition cycles
+        List<String> allRepetitionCycles = Arrays.asList("Daily", "weekly", "monthly", "yearly");
 
-        // Create Select class object and pass the dropdown WebElement
+
+        // Create Select object for the dropdown
         Select select = new Select(us08RecurringCalendarEventFaPage.DropDownRepeats);
 
-        // Select the appropriate option based on the given expected cycle
-        switch (expectedRepetitionCycle) {
-            case "Daily":
-                select.selectByValue("daily");
-                break;
-            case "Weekly":
-                select.selectByValue("weekly");
-                break;
-            case "Monthly":
-                select.selectByValue("monthly");
-                break;
-            case "Yearly":
-                select.selectByValue("yearly");
-                break;
-            default:
-                System.out.println("Error: Invalid repetition cycle selected - " + expectedRepetitionCycle);
+        // Iterate over each cycle except the excluded one
+        for (String cycle : allRepetitionCycles) {
+            if (!cycle.equalsIgnoreCase(excludedRepetitionCycle)) {
+                select.selectByValue(cycle);
+
+                String actualDefaultNumber = us08RecurringCalendarEventFaPage.RepeatEveryNumber.getAttribute("value");
+                Assert.assertEquals("Default value in 'Repeat Every' field is incorrect for: " + cycle, "1", actualDefaultNumber);
+
+                System.out.println("Verified default value '1' for repetition cycle: " + cycle + " is PASSED");
+
+            }
+
         }
-
-
-        BrowserUtils.waitFor(8);
     }
 
-        //=============== @US08AC2 =============================================================================================================
-
-
+    //=============== @US08AC2 =============================================================================================================
 
     @When("user clear the Repeat Every field and press Enter")
     public void userClearTheRepeatEveryFieldAndPressENTER() {
         us08RecurringCalendarEventFaPage.RepeatEveryNumber.clear();
-        us08RecurringCalendarEventFaPage.RepeatEveryNumber.sendKeys(Keys.ENTER);
+        //us08RecurringCalendarEventFaPage.RepeatEveryNumber.sendKeys(Keys.ENTER);
+        us08RecurringCalendarEventFaPage.RepeatEveryNumber.submit();
 
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOf(us08RecurringCalendarEventFaPage.errorMsg));
@@ -135,9 +126,8 @@ public class US08_RecurringCalendarEvent_FA_StepDefinitions {
     public void userShouldSeeTheErrorMessage(String expectedErrorMessage) {
         String actualErrorMessage = us08RecurringCalendarEventFaPage.errorMsg.getText();
         System.out.println("actualErrorMessage = " + actualErrorMessage);
-        Assert.assertEquals(expectedErrorMessage,actualErrorMessage);
-    }
-*/
-
+        Assert.assertEquals(expectedErrorMessage, actualErrorMessage);
     }
 
+
+}
