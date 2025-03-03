@@ -107,7 +107,6 @@ public class US08_RecurringCalendarEvent_FA_StepDefinitions {
 
         }
     }
-
     //=============== @US08AC2 =============================================================================================================
 
     @When("user clear the Repeat Every field and press Enter")
@@ -120,7 +119,6 @@ public class US08_RecurringCalendarEvent_FA_StepDefinitions {
         wait.until(ExpectedConditions.visibilityOf(us08RecurringCalendarEventFaPage.errorMsg));
 
     }
-
 
     @Then("user should see the error message {string}")
     public void userShouldSeeTheErrorMessage(String expectedErrorMessage) {

@@ -54,8 +54,6 @@ Feature:
       | sales manager |
 
 
-
-
   @US08AC2 # passed
 
   Scenario Outline: verify that users see the error message "This value should not be blank." When the Calendar event "Repeat Every" field is cleared (delete the number 1)

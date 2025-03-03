@@ -39,9 +39,6 @@ public class US08_RecurringCalendarEvent_FA_Page extends BasePage {
 
 
 
-
-
-
     @FindBy(xpath = "(//span[contains(text(),'This value should not be blank.')])[2]")
     public WebElement errorMsg;
 
