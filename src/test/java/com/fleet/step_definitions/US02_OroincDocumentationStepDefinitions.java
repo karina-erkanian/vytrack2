@@ -24,7 +24,10 @@ public class US02_OroincDocumentationStepDefinitions {
 
 
 
-    @Given("user is on the login page..")
+ 
+
+    @Given("the user is on  login page")
+
     public void user_is_on_login_page() {
         user.get(ConfigurationReader.getProperty("url"));
     }
